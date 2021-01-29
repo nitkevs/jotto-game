@@ -11,6 +11,8 @@
 require_once "{$_SERVER['DOCUMENT_ROOT']}/player.php";
 require_once "{$_SERVER['DOCUMENT_ROOT']}/script.php";
 
+$player = new Player();
+
 ?>
 <!DOCTYPE html>
 <html>
