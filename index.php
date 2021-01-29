@@ -8,8 +8,7 @@
  *
  */
 
-require_once "/media/hosts/jotto.localhost/public_html/player.php";
-require_once "/media/hosts/jotto.localhost/public_html/script.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/player.php";
 
 ?>
 <!DOCTYPE html>
