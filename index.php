@@ -9,6 +9,7 @@
  */
 
 require_once "/media/hosts/jotto.localhost/public_html/player.php";
+require_once "/media/hosts/jotto.localhost/public_html/script.php";
 
 ?>
 <!DOCTYPE html>
