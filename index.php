@@ -9,6 +9,7 @@
  */
 
 require_once "{$_SERVER['DOCUMENT_ROOT']}/player.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/script.php";
 
 ?>
 <!DOCTYPE html>
