@@ -10,5 +10,6 @@
  */
 
 class Script {
-	public $hidden_word;
+	public $hidden_word = '';
+	public $answer = '';
 }
