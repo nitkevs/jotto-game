@@ -16,6 +16,7 @@ session_start();
 // Если начинается новая игра
 if (!isset($_SESSION['player'])) {
   $player = new Player();
+  $player->alphabet = $player->alphabet();
   $script = new Script();
   $script->hidden_word = $script->random_word();
 
@@ -51,17 +52,19 @@ foreach ($player->alphabet as $letter => $class) {
       }
       #alphabet {
         margin: 5px auto;
+        width: fit-content;
+        text-align: center;
       }
       .letter {
-        user-select: none;
         display: inline-block;
         width: calc(var(--letter-size) + 2px);
-        cursor: pointer;
         border: 1px solid transparent;
         border-radius: 3px;
+        cursor: pointer;
         text-align: center;
-        line-height: var(--letter-size);
         font-size: 20px;
+        line-height: var(--letter-size);
+        user-select: none;
       }
       .uncertain {
         color: var(--letter-default-color);
@@ -82,7 +85,7 @@ foreach ($player->alphabet as $letter => $class) {
     <h1>Jotto Game</h1>
     <div id="alphabet"><?= $alphabet ?></div>
     <form action="check-answer.php" method="post">
-      <input type="hidden">
+      <input type="hidden" name="alphabet" id="alphabet-field">
       <input type="text" name="player-answer">
       <button>Ответить</button>
     </form>
@@ -93,7 +96,17 @@ foreach ($player->alphabet as $letter => $class) {
   <script>
     let alphabetBlock = document.getElementById('alphabet');
     let letters = alphabetBlock.querySelectorAll('span.letter');
-    letters.forEach(function(letter){
+    let alphabetField = document.getElementById('alphabet-field');
+    let alphabetClassesArray = [];
+    let alphabetClassesString = '';
+
+    letters.forEach(function(letter) {
+      alphabetClassesArray.push(letter.classList[1]);
+      alphabetClassesString = alphabetClassesArray.join(', ');
+      alphabetField.value = alphabetClassesString;
+    });
+
+    letters.forEach(function(letter, index){
       letter.addEventListener('click', function(){
         switch (true) {
           case this.classList.contains('uncertain'):
@@ -109,6 +122,9 @@ foreach ($player->alphabet as $letter => $class) {
             this.classList.add('uncertain');
             break;
         }
+        alphabetClassesArray[index] = this.classList[1];
+        alphabetClassesString = alphabetClassesArray.join(', ');
+        alphabetField.value = alphabetClassesString;
       });
     });
 
