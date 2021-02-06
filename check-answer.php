@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   $_SESSION['player'] = serialize($player);
   $_SESSION['script'] = serialize($script);
-
-  header("Location: /");
-  exit;
 }
+
+header("Location: /");
+exit;
