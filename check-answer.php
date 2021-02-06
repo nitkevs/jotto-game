@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	session_start();
 
-	$player = unserialize($_SESSION['player']);
+  $player = unserialize($_SESSION['player']);
   $script = unserialize($_SESSION['script']);
 
   $player->answer = htmlspecialchars($_POST['player-answer']);
@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if ($player->answer === $script->hidden_word) {
     $script->message = "<b>Угадали! Слово: " . mb_strtoupper($player->answer) . "</b>";
-    unset($_SESSION['hidden_word']);
   }
 
   for ($i = 0; $i < 5; $i++) {
