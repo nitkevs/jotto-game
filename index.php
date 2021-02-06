@@ -102,7 +102,7 @@ foreach ($player->alphabet as $letter => $class) {
       <input type="text" name="player-answer">
       <button>Ответить</button>
     </form>
-    <div id="message"></div>
+    <div id="message"><?= $script->message ?></div>
     <div id="recent-words"></div>
     </main>
   </body>

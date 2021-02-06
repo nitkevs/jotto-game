@@ -21,6 +21,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $alphabet = htmlspecialchars($_POST['alphabet']);
   $player->alphabet = $player->alphabet($alphabet);
 
+  if ($player->answer === $script->hidden_word) {
+    $script->message = "<b>Угадали! Слово: " . mb_strtoupper($player->answer) . "</b>";
+    unset($_SESSION['hidden_word']);
+  }
+
+  for ($i = 0; $i < 5; $i++) {
+    for ($j = 0; $j < 5; $j++) {
+      if (mb_substr($player->answer, $i, 1) === mb_substr($script->hidden_word, $j, 1)) {
+        $letters .= mb_strtoupper(mb_substr($player->answer, $i, 1));
+      }
+    }
+    if ($i  === 4 and empty($letters)) {
+      $script->message = "Вы не угадали ни одной буквы.";
+    } elseif ($i  === 4 and $player->answer !== $script->hidden_word) {
+      $script->message = "<b>" . $letters . "</b><br>";
+    }
+  }
+
   $_SESSION['player'] = serialize($player);
   $_SESSION['script'] = serialize($script);
 }

@@ -11,7 +11,7 @@
 
 class Script {
 	public $hidden_word = '';
-	public $answer = '';
+	public $message = '';
 
 	public function random_word() {
 		$lines = file('./words_list.txt', FILE_IGNORE_NEW_LINES);
