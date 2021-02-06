@@ -1,7 +1,12 @@
 <?php
-// check-answer.php
 
-
+/**
+ *
+ * /check-answer.php
+ *
+ * Обработчик ввода игрока.
+ *
+ */
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require_once "{$_SERVER['DOCUMENT_ROOT']}/player.php";
