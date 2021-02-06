@@ -34,6 +34,14 @@ foreach ($player->alphabet as $letter => $class) {
   $alphabet .= "<span class=\"letter {$class}\">{$letter}</span>\n";
 }
 
+$included_letters = '';
+
+foreach ($player->alphabet as $letter => $class) {
+    if ($class === 'included') {
+      $included_letters .= $letter;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,10 +58,15 @@ foreach ($player->alphabet as $letter => $class) {
         margin: 0px;
         padding: 0px;
       }
-      #alphabet {
-        margin: 5px auto;
+      #alphabet,
+      #included-letters {
+        margin: 12px auto;
         width: fit-content;
         text-align: center;
+        font-size: 20px;
+      }
+      #included-letters {
+        letter-spacing: 10px;
       }
       .letter {
         display: inline-block;
@@ -62,7 +75,6 @@ foreach ($player->alphabet as $letter => $class) {
         border-radius: 3px;
         cursor: pointer;
         text-align: center;
-        font-size: 20px;
         line-height: var(--letter-size);
         user-select: none;
       }
@@ -84,6 +96,7 @@ foreach ($player->alphabet as $letter => $class) {
     <main>
     <h1>Jotto Game</h1>
     <div id="alphabet"><?= $alphabet ?></div>
+    <div id="included-letters"><?= $included_letters ?></div>
     <form action="check-answer.php" method="post">
       <input type="hidden" name="alphabet" id="alphabet-field">
       <input type="text" name="player-answer">
