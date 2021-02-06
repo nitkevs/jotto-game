@@ -13,7 +13,7 @@ class Player {
   public $answer = '';
   public $alphabet = array();
 
-  public $used_words =  '';
+  public $used_words = array();
 
   public function alphabet($string = "uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain, uncertain") {
   	$array = explode(', ', $string);

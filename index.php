@@ -103,7 +103,7 @@ foreach ($player->alphabet as $letter => $class) {
       <button>Ответить</button> <button formaction="new-game.php">Новая игра</button>
     </form>
     <div id="message"><?= $script->message ?></div>
-    <div id="recent-words"></div>
+    <div id="recent-words"><?= implode($player->used_words, ' '); ?></div>
     </main>
   </body>
   <script>
