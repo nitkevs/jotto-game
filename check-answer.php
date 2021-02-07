@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $player = unserialize($_SESSION['player']);
   $script = unserialize($_SESSION['script']);
 
-  $player->answer = htmlspecialchars($_POST['player-answer']);
+  $player->answer = mb_strtolower(htmlspecialchars($_POST['player-answer']));
   $alphabet = htmlspecialchars($_POST['alphabet']);
   $player->alphabet = $player->alphabet($alphabet);
 
