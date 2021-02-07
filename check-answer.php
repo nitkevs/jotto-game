@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $player->used_words[] = $player->answer;
 } else {
-  $script->message = 'Слово "' . mb_strtoupper($player->answer) . '" не соотвтествует правилам игры.';
+  $script->message = 'Слово "' . mb_strtoupper($player->answer) . '" не соотвтествует <a href="">правилам игры</a>.';
 }
 
   $_SESSION['player'] = serialize($player);

@@ -23,6 +23,14 @@ button, input {
   margin: 20px 2px;
 }
 
+p {
+    margin-block-end: 10px;
+}
+
+ul {
+  margin: 10px 10px 10px 36px;
+}
+
 #alphabet,
 #included-letters {
   margin: 12px auto;

@@ -68,6 +68,11 @@ foreach ($player->used_words as $word) {
 }
 ?>
     </div>
+<?php
+if (empty($player->used_words)) {
+  echo '<div id="rules"><a href="rules.php">Правила игры</a></div>';
+}
+?>
     </main>
   </body>
   <script type="text/javascript" src="alphabet.js"></script>
