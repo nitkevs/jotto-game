@@ -48,72 +48,7 @@ foreach ($player->alphabet as $letter => $class) {
   <head>
     <meta charset="utf-8">
     <title>Jotto Game</title>
-    <style type="text/css">
-      :root {
-        --letter-size: 24px;
-        --letter-default-color: #333;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0px;
-        padding: 0px;
-      }
-      body {
-        padding: 20px 80px;
-        font-size: 18px;
-      }
-      h1 {
-        margin: 20px 0;
-      }
-      button, input {
-        padding: 2px 4px;
-        margin: 20px 2px;
-      }
-      #alphabet,
-      #included-letters {
-        margin: 12px auto;
-        width: fit-content;
-        text-align: center;
-        font-size: 20px;
-      }
-      #alphabet {
-        padding: 10px 0;
-        border-bottom: 1px solid #ccc;
-      }
-      #included-letters {
-        letter-spacing: 10px;
-      }
-      .letter {
-        display: inline-block;
-        width: calc(var(--letter-size) + 2px);
-        border: 1px solid transparent;
-        border-radius: 3px;
-        cursor: pointer;
-        text-align: center;
-        line-height: var(--letter-size);
-        user-select: none;
-      }
-      .uncertain {
-        color: var(--letter-default-color);
-        border-color: transparent;
-      }
-      .included {
-        color: var(--letter-default-color);
-        border-color: var(--letter-default-color);
-      }
-      .excluded {
-        color: #ccc;
-        border-color: transparent;
-      }
-      #recent-words {
-        margin-top: 18px;
-      }
-      #recent-words div {
-        display: inline-block;
-        width: 100px;
-        margin: 5px 0;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <main>
