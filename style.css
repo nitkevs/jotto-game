@@ -1,3 +1,11 @@
+/*
+*
+* /style.css
+*
+* Набор правил css игры
+*
+*/
+
 :root {
   --letter-size: 24px;
   --letter-default-color: #333;
