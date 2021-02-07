@@ -100,7 +100,7 @@ foreach ($player->alphabet as $letter => $class) {
     <form action="check-answer.php" method="post">
       <input type="hidden" name="alphabet" id="alphabet-field">
       <input type="text" name="player-answer">
-      <button>Ответить</button> <button formaction="new-game.php">Новая игра</button>
+      <button>Ответить</button> <button formaction="new-game.php">Новая игра</button> <button formaction="show-answer.php" value="show-answer">Сдаюсь</button>
     </form>
     <div id="message"><?= $script->message ?></div>
     <div id="recent-words"><?= implode($player->used_words, ' '); ?></div>
@@ -143,4 +143,3 @@ foreach ($player->alphabet as $letter => $class) {
 
   </script>
 </html>
-<?php
