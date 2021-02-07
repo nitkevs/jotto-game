@@ -58,12 +58,27 @@ foreach ($player->alphabet as $letter => $class) {
         margin: 0px;
         padding: 0px;
       }
+      body {
+        padding: 20px 80px;
+        font-size: 18px;
+      }
+      h1 {
+        margin: 20px 0;
+      }
+      button, input {
+        padding: 2px 4px;
+        margin: 20px 2px;
+      }
       #alphabet,
       #included-letters {
         margin: 12px auto;
         width: fit-content;
         text-align: center;
         font-size: 20px;
+      }
+      #alphabet {
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
       }
       #included-letters {
         letter-spacing: 10px;
@@ -90,6 +105,14 @@ foreach ($player->alphabet as $letter => $class) {
         color: #ccc;
         border-color: transparent;
       }
+      #recent-words {
+        margin-top: 18px;
+      }
+      #recent-words div {
+        display: inline-block;
+        width: 100px;
+        margin: 5px 0;
+      }
     </style>
   </head>
   <body>
@@ -99,11 +122,17 @@ foreach ($player->alphabet as $letter => $class) {
     <div id="included-letters"><?= $included_letters ?></div>
     <form action="check-answer.php" method="post">
       <input type="hidden" name="alphabet" id="alphabet-field">
-      <input type="text" name="player-answer">
+      <input type="text" name="player-answer" autocomplete="off" autofocus>
       <button>Ответить</button> <button formaction="new-game.php">Новая игра</button> <button formaction="show-answer.php" value="show-answer">Сдаюсь</button>
     </form>
     <div id="message"><?= $script->message ?></div>
-    <div id="recent-words"><?= implode($player->used_words, ' '); ?></div>
+    <div id="recent-words">
+<?php
+foreach ($player->used_words as $word) {
+  echo '<div>' . $word . '</div>';
+}
+?>
+    </div>
     </main>
   </body>
   <script>
